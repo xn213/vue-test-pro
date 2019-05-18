@@ -14,14 +14,17 @@
     <attrs-listeners></attrs-listeners>
     <hr />
 
-    <provide-inject></provide-inject>
+    <provide-inject ref="aaa"></provide-inject>
     <hr />
 
-    <component-a ref="componentA"></component-a>
+    <componentA ref="componentAA"></componentA>
   </div>
 </template>
 
 <script>
+// vue组件间六种 通信方式
+// props  $emit/$on  vuex  $parent/$children  $attrs/$listeners  provide/inject
+
 const emitOn = () => import('./component/emitOn.vue')
 const testBus = () => import('./component/testBus')
 
@@ -40,7 +43,9 @@ const provideInject = () => import('./component/provideInject')
  * <component-b></component-b>
  * <component-b></component-b>
  */
-const componentA = () => import('./component/provideInject/componentA')
+// const  = () => import('./component/provideInject/componentA')
+import componentA from './component/provideInject/componentA'
+
 import { mapMutations, mapState } from 'vuex'
 export default {
   name: 'Test',
@@ -54,18 +59,15 @@ export default {
     this.changeCity('上海')
   },
   mounted() {
-    const componentA = this.$refs.componentA
+    const componentAA = this.$refs.componentAA
     // eslint-disable-next-line no-console
-    console.log(componentA)
-    componentA.sayHello() // 弹窗
+    console.log(this.$children[0].title, componentAA.title)
+    componentAA.sayHello() // 弹窗
   },
   computed: {
     ...mapState(['city'])
   },
   methods: {
-    // vue组件间六种 通信方式
-    // props  $emit/$on  vuex  $parent/$children  $attrs/$listeners  provide/inject
-
     // 方法二: $eimt/$on or eventBus
     updateTitle(e) {
       this.title = e
