@@ -1,8 +1,6 @@
 import Axios from 'axios'
 
-export function getStudentJobData({
-  date
-}) {
+export function getStudentJobData({ date }) {
   return Axios.get('/api/teacher.php/Api/studentJobData_month', {
     params: {
       date
@@ -10,7 +8,7 @@ export function getStudentJobData({
   })
 }
 // 写法2
-export function getStudentJobData2({ date }){
+export function getStudentJobData2({ date }) {
   return Axios({
     url: '/api/teacher.php/Api/studentJobData_month',
     method: 'get',

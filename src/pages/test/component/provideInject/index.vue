@@ -1,12 +1,14 @@
 <template>
   <div>
-    page2
+    <com-a></com-a>
   </div>
 </template>
 
 <script>
+const comA = () => import('./comA')
 export default {
-  name: 'page2',
+  name: '',
+  components: { comA },
   data() {
     return {}
   },

@@ -2,7 +2,7 @@ const path = require('path')
 
 // 开发环境代理
 const proxyConfig = {
-  target: 'http://jx.1000phone.net',
+  target: 'http://jx.1000phone.net'
 }
 
 function resolve(dir) {
@@ -10,7 +10,6 @@ function resolve(dir) {
 }
 
 module.exports = {
-  
   configureWebpack: {
     resolve: {
       extensions: ['.js', '.vue', '.json'],
