@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
+import './style/index.scss'
 
 import bus from './module/Bus'
 import store from './store'

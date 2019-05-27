@@ -19,6 +19,31 @@ const routes = [
     component: Page2
   },
   {
+    path: '/index',
+    name: 'index',
+    component: () => import('pages/keep-alive/index'),
+    meta: {
+      deepth: 0.5
+    }
+  },
+  {
+    path: '/list',
+    name: 'list',
+    component: () => import('pages/keep-alive/list'),
+    meta: {
+      deepth: 1,
+      keepAlive: true // 需要被缓存
+    }
+  },
+  {
+    path: 'detail',
+    name: 'detail',
+    component: () => import('pages/keep-alive/detail'),
+    meta: {
+      deepth: 2
+    }
+  },
+  {
     path: '/test',
     name: 'test',
     component: Test
