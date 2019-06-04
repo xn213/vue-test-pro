@@ -1,6 +1,7 @@
 @import './layout.css';
 
 $theme: #6ab6fc;
+$cxn: #b45dea;
 $bdra: 10px;
 
 body {
@@ -13,10 +14,10 @@ div {
 }
 
 .theme-bg {
-  background: $bdra;
+  // background: $cxn;
 }
 .swiper {
-  height: 26vw;
+  height: 26vh;
   border-radius: $bdra;
   box-shadow: 0 10px 10px -4px rgba(106, 182, 252, .15);  
 }

@@ -1,27 +1,27 @@
-const Page1 = () => import('pages/page1')
-const Page2 = () => import('pages/page2')
+const studentJob = () => import('pages/student-job')
+const randomUser = () => import('pages/random-user')
 const Test = () => import('pages/test')
 
 const routes = [
   {
     path: '/',
     name: 'root',
-    redirect: '/page1'
+    redirect: '/student-job'
   },
   {
-    path: '/page1',
-    name: 'Page1',
-    component: Page1
+    path: '/student-job',
+    name: 'student-job',
+    component: studentJob
   },
   {
-    path: '/page2',
-    name: 'Page2',
-    component: Page2
+    path: '/random-user',
+    name: 'random-user',
+    component: randomUser
   },
   {
     path: '/index',
     name: 'index',
-    component: () => import('pages/keep-alive/index'),
+    component: () => import('pages/keep-alive'),
     meta: {
       deepth: 0.5
     }

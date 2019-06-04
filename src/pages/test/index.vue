@@ -46,17 +46,22 @@ const provideInject = () => import('./component/provideInject')
 // const  = () => import('./component/provideInject/componentA')
 import componentA from './component/provideInject/componentA'
 
+import { getRandomUsersApi } from 'api/randomUsersApi'
 import { mapMutations, mapState } from 'vuex'
 export default {
   name: 'Test',
   components: { emitOn, testBus, attrsListeners, provideInject, componentA },
   data() {
     return {
-      title: '父组件的值,点击子组件将会改变'
+      title: '父组件的值,点击子组件将会改变',
+      randomUserParams: {
+        results: 21,
+        inc: 'gender,email,phone,cell,nat'
+      }
     }
   },
   created() {
-    this.changeCity('上海')
+    this.changeCity('上海'), this.getRandomUsers()
   },
   mounted() {
     const componentAA = this.$refs.componentAA
@@ -76,6 +81,11 @@ export default {
     ...mapMutations(['changeCity']),
     getCity() {
       this.changeCity('杭州')
+    },
+    // test api of randomUsersApi
+    async getRandomUsers() {
+      let randomUsers = await getRandomUsersApi(this.randomUserParams)
+      console.log('randomUsers: ', randomUsers)
     }
   }
 }

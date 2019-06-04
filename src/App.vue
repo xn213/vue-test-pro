@@ -1,5 +1,11 @@
 <template>
   <div id="app">
+    <div class="router-link">
+      <router-link to="/index">index</router-link>
+      <router-link to="/student-job">student-job</router-link>
+      <router-link to="/random-user">random-user</router-link>
+      <router-link to="/test">test</router-link>
+    </div>
     <keep-alive>
       <!-- 需要缓存的视图组件 -->
       <router-view
@@ -38,8 +44,28 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+$cxn: #b45dea;
 #app {
   padding: 21px;
+  .router-link {
+    a {
+      line-height: 21px;
+      height: 21px;
+      border: 1px solid #eee;
+      padding: 8px;
+      text-decoration: none;
+      border-radius: 5px;
+      color: $cxn;
+      &:hover {
+        color: white;
+        background: $cxn;
+      }
+    }
+    a:nth-child(2) {
+      border-left: none;
+      border-right: none;
+    }
+  }
 }
 </style>

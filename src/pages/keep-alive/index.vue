@@ -9,7 +9,6 @@
         class="tab-item flex-1"
       ></span>
     </div>
-    <div class="swiper theme-bg"></div>
     <h3>推荐</h3>
     <div
       @click="$router.push({ name: 'list' })"

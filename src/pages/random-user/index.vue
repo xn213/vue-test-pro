@@ -1,12 +1,12 @@
 <template>
   <div>
-    page2
+    random-user
   </div>
 </template>
 
 <script>
 export default {
-  name: 'page2',
+  name: 'random-user',
   data() {
     return {}
   },
