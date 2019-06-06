@@ -1,5 +1,7 @@
+const weather = () => import('pages/weather')
 const studentJob = () => import('pages/student-job')
-const randomUser = () => import('pages/random-user')
+const RXCounter = () => import('pages/RX-Counter')
+const Joke = () => import('pages/joke')
 const Test = () => import('pages/test')
 
 const routes = [
@@ -14,9 +16,9 @@ const routes = [
     component: studentJob
   },
   {
-    path: '/random-user',
-    name: 'random-user',
-    component: randomUser
+    path: '/RX-Counter',
+    name: 'RX-Counter',
+    component: RXCounter
   },
   {
     path: '/index',
@@ -42,6 +44,20 @@ const routes = [
     meta: {
       deepth: 2
     }
+  },
+  {
+    path: '/weather',
+    name: 'weather',
+    component: weather,
+    meta: {
+      deepth: 1,
+      keepAlive: true // 需要被缓存
+    }
+  },
+  {
+    path: '/joke',
+    name: 'joke',
+    component: Joke
   },
   {
     path: '/test',

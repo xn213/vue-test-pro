@@ -1,10 +1,9 @@
 <template>
   <div id="app">
-    <div class="router-link">
-      <router-link to="/index">index</router-link>
-      <router-link to="/student-job">student-job</router-link>
-      <router-link to="/random-user">random-user</router-link>
-      <router-link to="/test">test</router-link>
+    <div class="router-link-wrap">
+      <router-link v-for="(item, index) in links" :key="index" :to="item.url">{{
+        item.text
+      }}</router-link>
     </div>
     <keep-alive>
       <!-- 需要缓存的视图组件 -->
@@ -19,12 +18,19 @@
 </template>
 
 <script>
+import { routerLinks } from 'utils'
 export default {
   name: 'app',
   data() {
     return {
-      include: []
+      include: [],
+      links: routerLinks()
     }
+  },
+  computed: {
+    // links() {
+    //   return routerLinks()
+    // }
   },
   watch: {
     $route(to, from) {
@@ -48,23 +54,26 @@ export default {
 $cxn: #b45dea;
 #app {
   padding: 21px;
-  .router-link {
+  .router-link-wrap {
+    padding-bottom: 21px;
+    .router-link-active {
+      background: #b45dea;
+      color: white;
+    }
     a {
       line-height: 21px;
       height: 21px;
       border: 1px solid #eee;
       padding: 8px;
+      margin-right: 8px;
       text-decoration: none;
       border-radius: 5px;
+      box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
       color: $cxn;
       &:hover {
         color: white;
         background: $cxn;
       }
-    }
-    a:nth-child(2) {
-      border-left: none;
-      border-right: none;
     }
   }
 }

@@ -1,29 +1,11 @@
 <template>
-  <div class="student-job">
-    <h3>student-job</h3>
-
-    <!-- 轮播 -->
-    <div class="swiper theme-bg">
-      <el-carousel type="card" height="100%" indicator-position="none">
-        <el-carousel-item v-for="item in 4" :key="item">
-          <h3 class="small">{{ item }}</h3>
-          <img src="@/assets/logo.png" alt="logo" />
-        </el-carousel-item>
-      </el-carousel>
-    </div>
-
-    <!-- 分割线 -->
-    <el-divider>更多精彩</el-divider>
-
-    <!-- 表格 -->
+  <div class="studentjob-table">
     <div class="table-wrap">
       <div class="table-th">
-        <span>
-          {{ studentsJobData.topSalary }}
-          {{ studentsJobData.avgSalary }}
-          {{ studentsJobData.goodSalaryRate }}
-          {{ studentsJobData.jobCount }}
-        </span>
+        Top: {{ studentsJobData.topSalary }}<span> | </span> 平均:
+        {{ studentsJobData.avgSalary }}<span> | </span> 高薪率:
+        {{ studentsJobData.goodSalaryRate }}<span> | </span> Total:
+        {{ studentsJobData.jobCount }}
       </div>
       <el-table :data="studentJobList" v-loading="loading" border>
         <el-table-column
@@ -34,7 +16,7 @@
         ></el-table-column>
         <el-table-column fixed label="姓名" width="100">
           <div slot-scope="scope">
-            {{ scope.row.student | formatName }}
+            {{ scope.row.student }}
           </div>
         </el-table-column>
         <el-table-column
@@ -49,22 +31,13 @@
         </el-table-column>
         <el-table-column prop="status" label="状态" width="70">
         </el-table-column>
-        <el-table-column prop="profession" label="专业" width="170">
+        <el-table-column prop="profession" label="专业" width="180">
         </el-table-column>
-        <el-table-column prop="salary" label="薪资" width="150">
+        <el-table-column prop="salary" label="薪资" width="150" sortable>
         </el-table-column>
         <el-table-column prop="city" label="坐标" width="70"> </el-table-column>
         <el-table-column prop="company" label="公司" width="260">
         </el-table-column>
-        <!-- <el-table-column
-        fixed="right"
-        label="操作"
-        width="100">
-        <template slot-scope="scope">
-          <el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button>
-          <el-button type="text" size="small">编辑</el-button>
-        </template>
-      </el-table-column> -->
       </el-table>
       <!-- 分页 -->
       <div class="pagination-wrap">
@@ -87,36 +60,17 @@
 import { initPagination } from 'utils'
 import { getStudentJobData } from 'api/studentJobData'
 export default {
-  name: 'student-job',
+  name: 'studentjob-table',
+  props: { date: String },
   data() {
     return {
       data: {},
       loading: true,
-      date: '2019-05',
       pageSizeArr: [10, 20, 30, 50],
       pagination: { ...initPagination() },
       studentJobList: [],
-      studentsJobData: {},
-      resData: {
-        //   "topSalary": "60000",
-        //   "avgSalary": 9794.26,
-        //   "goodSalaryRate": 0.45,
-        //   "jobCount": 1318,
-        //   "jobRate": 1,
-        //   "student": [
-        //     {
-        //       "class": "BK-HTML5-GP-100",
-        //       "student": "郭某二",
-        //       "education": "本科",
-        //       "status": "在读",
-        //       "profession": "软件工程",
-        //       "salary": "10000",
-        //       "city": "北京",
-        //       "company": "保密",
-        //       "date": "2019-03-01"
-        //     },
-        //   ]
-      }
+      list: [],
+      studentsJobData: {}
     }
   },
   created() {
@@ -142,8 +96,12 @@ export default {
     async getData(date) {
       // 异步获取数据
       let res = await getStudentJobData({ date })
+      let list = res.data.student.filter(
+        item => item.class === 'BK-HTML5-JY-1616'
+      )
+      this.list = list
       this.data = res.data
-      this.pagination.total = res.data.student.length
+      this.pagination.total = list.length
       this.handleStudentJobList()
       this.handleData(res.data)
       this.loading = false
@@ -155,7 +113,7 @@ export default {
       // let tt = this.pagination.total
       let start = (ct - 1) * ps + 1
       let end = ct * ps + 1
-      this.studentJobList = this.data.student.slice(start, end)
+      this.studentJobList = this.list.slice(start, end)
     },
     // json 外层统计数据
     handleData(data) {
@@ -176,30 +134,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.student-job {
-  padding: 0 21px;
+.studentjob-table {
+  .table-wrap {
+    .table-th {
+      span {
+        padding: 0 5px;
+        color: #b45dea;
+      }
+    }
+  }
   .pagination-wrap {
     margin: 21px 21px 0 0;
     text-align: right;
-  }
-  .el-carousel {
-    height: 100%;
-    .el-carousel__item:nth-child(2n) {
-      background-color: #ccc;
-    }
-    .el-carousel__item:nth-child(2n + 1) {
-      background-color: #eee;
-    }
-    .small {
-      text-align: center;
-      color: white;
-    }
-    img {
-      display: block;
-      // width: 50%;
-      height: 50%;
-      margin: 0 auto;
-    }
   }
 }
 </style>

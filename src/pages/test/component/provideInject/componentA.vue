@@ -15,7 +15,8 @@ export default {
   },
   methods: {
     sayHello() {
-      window.alert('Hello')
+      // window.alert('Hello')
+      console.log('hello')
     }
   }
 }
