@@ -33,6 +33,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-// @import '@/assets/styles/global.scss';
-</style>
+<style lang="scss" scoped></style>

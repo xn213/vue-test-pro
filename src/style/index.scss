@@ -1,8 +1,23 @@
+@import './reset.scss';
 @import './layout.css';
 
 $theme: #6ab6fc;
 $cxn: #b45dea;
 $bdra: 10px;
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .3s;
+}
+
+.slide-right-enter, .slide-right-leave-to {
+  transform: translate3d(-100%, 0, 0);
+}
+.slide-right-enter-active, .slide-right-leave-active {
+  transition: all .2s linear;
+}
 
 body {
   margin: 0;
@@ -13,9 +28,9 @@ div {
   box-sizing: border-box;
 }
 
-.theme-bg {
-  // background: $cxn;
-}
+// .theme-bg {
+//   // background: $cxn;
+// }
 .swiper {
   height: 26vh;
   border-radius: $bdra;

@@ -1,6 +1,13 @@
 <template>
   <div class="weather" v-loading="loading">
-    <div>本页已被缓存</div>
+    <div class="weather-newtab" title="新窗口打开">
+      <a
+        href="https://apip.weatherdt.com/h5.html?id=7f0tSWM9fd"
+        target="_blank"
+      >
+        本页已缓存, 新窗口打开weather-h5
+      </a>
+    </div>
     <h2>
       <span
         v-if="
@@ -13,8 +20,11 @@
     </h2>
     <hr />
 
+    <!-- 搜索 -->
     <div class="weather-search">
-      <label for="weather-search">输入查询城市名(支持全拼): </label>
+      <label @click="isWeatherShow = !isWeatherShow" for="weather-search"
+        >输入查询城市名(支持全拼):
+      </label>
       <input
         id="weather-search"
         type="text"
@@ -22,31 +32,58 @@
         @change="change"
       />
     </div>
-    <div class="weather-detail" v-if="weather.status === 'ok'">
-      <p>更新时间: {{ weather.update.loc }}</p>
-      <p>
-        <span>温度: {{ weather.now.tmp }}<sup>。</sup></span>
-      </p>
-      <p>体感温度: {{ weather.now.fl }}</p>
-      <p>天气: {{ weather.now.cond_txt }}</p>
-      <p>相对湿度: {{ weather.now.hum }}</p>
-      <p>降水量: {{ weather.now.pcpn }}</p>
-      <p>能见度: {{ weather.now.vis }}公里</p>
-      <p>风力: {{ weather.now.wind_sc }}</p>
-      <p>风速: {{ weather.now.wind_spd }}</p>
-      <p>风向: {{ weather.now.wind_dir }}</p>
-    </div>
-    <div class="weather-detail" v-if="weather.status === 'unknown location'">
-      查不到这个城市
-    </div>
-    <div class="weather-detail" v-if="weather.status === 'invalid param'">
-      城市名不合法
-    </div>
+
+    <!-- 内容 -->
+    <transition name="fade">
+      <div class="weather-detail-wrap" v-show="isWeatherShow">
+        <div class="weather-detail" v-if="weather.status === 'ok'">
+          <p>更新时间: {{ weather.update.loc }}</p>
+          <p>天气: {{ weather.now.cond_txt }}</p>
+          <p>
+            <span class="weather-detail-tmp">
+              温度: {{ weather.now.tmp }}<sup>。</sup>
+            </span>
+          </p>
+          <p>
+            <span class="weather-detail-fl">
+              体感温度: {{ weather.now.fl }}<sup>。</sup>
+            </span>
+          </p>
+          <p>相对湿度: {{ weather.now.hum }}%</p>
+          <p>降水量: {{ weather.now.pcpn }}mm</p>
+          <p>风向: {{ weather.now.wind_dir }}</p>
+          <p>风力: {{ weather.now.wind_sc }}级</p>
+          <p>风速: {{ weather.now.wind_spd }}km/h</p>
+          <p>能见度: {{ weather.now.vis }}公里</p>
+        </div>
+        <div
+          class="weather-detail"
+          v-if="weather.status === 'unknown location'"
+        >
+          查不到这个城市
+        </div>
+        <div class="weather-detail" v-if="weather.status === 'invalid param'">
+          城市名不合法
+        </div>
+      </div>
+    </transition>
+
+    <!-- weather 插件 天气网 -->
+    <iframe
+      id="show-iframe"
+      frameborder="0"
+      name="showHere"
+      scrolling="no"
+      height="430"
+      src="target.html"
+    >
+      <div id="weather-view-he"></div>
+    </iframe>
   </div>
 </template>
 
 <script>
-import { getNowWeatherApi } from 'api/getWeather'
+import { getNowWeatherApi, getForecastWeatherApi } from 'api/getWeather'
 export default {
   name: 'weather',
   data() {
@@ -70,22 +107,26 @@ export default {
         },
         update: {
           loc: ''
-        }
+        },
+        daily_forecast: []
       },
-      loading: true
+      loading: true,
+      isWeatherShow: false
     }
   },
-  async created() {
-    this.getNowWeather(this.params)
+  created() {
+    this.getNowWeather()
+    this.getForecastWeather()
   },
   methods: {
     change() {
       if (this.params.location == '') return
+      this.isWeatherShow = true
       this.getNowWeather(this.params)
       console.log(this.params.location)
     },
-    async getNowWeather(p) {
-      let res = await getNowWeatherApi(p)
+    async getNowWeather() {
+      let res = await getNowWeatherApi(this.params)
       let weatherObj = res.data.HeWeather6[0]
       this.weather.basic = weatherObj.basic
       this.weather.now = weatherObj.now
@@ -93,6 +134,12 @@ export default {
       this.weather.status = weatherObj.status
       this.loading = false
       console.log(weatherObj, this.weather)
+    },
+    async getForecastWeather() {
+      let res = await getForecastWeatherApi(this.params)
+      let wObj = res.data.HeWeather6[0]
+      this.weather.daily_forecast = wObj.daily_forecast
+      console.log('getForecastWeather: ', res, wObj)
     }
   }
 }
@@ -100,20 +147,41 @@ export default {
 
 <style lang="scss" scoped>
 .weather {
+  padding-left: 13px;
+  min-height: 100%;
   color: white;
-  padding: 21px;
-  background-image: linear-gradient(#3b5bdb, #59b6e6);
+  background-image: linear-gradient(#b45dea, #ff9191);
+  &-newtab {
+    padding: 13px 0 21px;
+    a {
+      color: white;
+    }
+  }
   &-search {
+    margin-bottom: 8px;
     input {
+      width: 96px;
+      height: 21px;
+      line-height: 21px;
       color: #b45dea;
       padding-left: 6px;
-      border-radius: 5px;
+      border-radius: 3px;
       border: 1px solid #eee;
     }
   }
   &-detail {
+    width: 213px;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid white;
+    &-tmp {
+      font-size: 21px;
+    }
+    &-fl {
+      font-size: 18px;
+    }
     sup {
-      font-size: 60%;
+      font-size: 80%;
       top: -0.9em;
       line-height: 0;
       position: relative;

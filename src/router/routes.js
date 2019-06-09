@@ -1,6 +1,9 @@
 const weather = () => import('pages/weather')
+const weatherH5 = () => import('pages/weather/weather-h5.vue')
+const tao24 = () => import('pages/tao24')
 const studentJob = () => import('pages/student-job')
 const RXCounter = () => import('pages/RX-Counter')
+const randomUser = () => import('pages/random-user')
 const Joke = () => import('pages/joke')
 const Test = () => import('pages/test')
 
@@ -8,21 +11,70 @@ const routes = [
   {
     path: '/',
     name: 'root',
-    redirect: '/student-job'
+    redirect: '/weather'
+  },
+  {
+    path: '/weather',
+    name: 'weather',
+    component: weather,
+    meta: {
+      deepth: 1,
+      keepAlive: true // 需要被缓存
+    }
+  },
+  {
+    path: '/weather-h5',
+    name: 'weather-h5',
+    component: weatherH5,
+    meta: {
+      deepth: 1,
+      keepAlive: true // 需要被缓存
+    }
+  },
+  {
+    path: '/joke',
+    name: 'joke',
+    component: Joke,
+    meta: {
+      deepth: 1,
+      keepAlive: true
+    }
+  },
+  {
+    path: '/tao24',
+    name: 'tao24',
+    component: tao24
   },
   {
     path: '/student-job',
     name: 'student-job',
-    component: studentJob
+    component: studentJob,
+    meta: {
+      deepth: 1,
+      keepAlive: true
+    }
   },
   {
     path: '/RX-Counter',
     name: 'RX-Counter',
-    component: RXCounter
+    component: RXCounter,
+    meta: {
+      deepth: 1,
+      keepAlive: true
+    }
   },
   {
-    path: '/index',
-    name: 'index',
+    path: '/random-user',
+    name: 'random-user',
+    component: randomUser,
+    meta: {
+      deepth: 1,
+      keepAlive: true
+    }
+  },
+  {
+    path: '/keep-alive',
+    name: 'keep-alive',
     component: () => import('pages/keep-alive'),
     meta: {
       deepth: 0.5
@@ -44,20 +96,6 @@ const routes = [
     meta: {
       deepth: 2
     }
-  },
-  {
-    path: '/weather',
-    name: 'weather',
-    component: weather,
-    meta: {
-      deepth: 1,
-      keepAlive: true // 需要被缓存
-    }
-  },
-  {
-    path: '/joke',
-    name: 'joke',
-    component: Joke
   },
   {
     path: '/test',

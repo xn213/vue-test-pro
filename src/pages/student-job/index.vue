@@ -177,7 +177,6 @@ export default {
 
 <style lang="scss" scoped>
 .student-job {
-  padding: 0 21px;
   .pagination-wrap {
     margin: 21px 21px 0 0;
     text-align: right;

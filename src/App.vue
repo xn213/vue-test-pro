@@ -1,19 +1,30 @@
 <template>
   <div id="app">
-    <div class="router-link-wrap">
-      <router-link v-for="(item, index) in links" :key="index" :to="item.url">{{
-        item.text
-      }}</router-link>
+    <!-- 导航菜单 -->
+    <div class="menu-btn-wrap">
+      <i class="menu-btn" @click="isMenuShow = !isMenuShow"></i>
     </div>
-    <keep-alive>
-      <!-- 需要缓存的视图组件 -->
-      <router-view
-        :include="include"
-        v-if="$route.meta.keepAlive"
-      ></router-view>
-    </keep-alive>
-    <!-- 不需要缓存的视图组件 -->
-    <router-view v-if="!$route.meta.keepAlive"></router-view>
+    <transition name="slide-right">
+      <div class="menu" v-show="isMenuShow">
+        <ul>
+          <li v-for="(item, index) in links" :key="index">
+            <router-link :to="item.url">{{ item.text }}</router-link>
+          </li>
+        </ul>
+      </div>
+    </transition>
+    <!-- 内容 -->
+    <section class="section" :class="isMenuShow ? 'section' : 'nml'">
+      <keep-alive>
+        <!-- 需要缓存的视图组件 -->
+        <router-view
+          :include="include"
+          v-if="$route.meta.keepAlive"
+        ></router-view>
+      </keep-alive>
+      <!-- 不需要缓存的视图组件 -->
+      <router-view v-if="!$route.meta.keepAlive"></router-view>
+    </section>
   </div>
 </template>
 
@@ -24,7 +35,16 @@ export default {
   data() {
     return {
       include: [],
-      links: routerLinks()
+      isMenuShow: true,
+      links: routerLinks() // 3种方式
+      // links: [
+      //   { url: '/index', text: 'index' },
+      //   { url: '/weather', text: 'weather' },
+      //   { url: '/student-job', text: 'student-job' },
+      //   { url: '/RX-Counter', text: 'RX-Counter' },
+      //   { url: '/joke', text: 'joke' },
+      //   { url: '/test', text: 'test' }
+      // ]
     }
   },
   computed: {
@@ -53,28 +73,80 @@ export default {
 <style lang="scss">
 $cxn: #b45dea;
 #app {
-  padding: 21px;
-  .router-link-wrap {
-    padding-bottom: 21px;
-    .router-link-active {
-      background: #b45dea;
-      color: white;
-    }
-    a {
-      line-height: 21px;
-      height: 21px;
-      border: 1px solid #eee;
-      padding: 8px;
-      margin-right: 8px;
-      text-decoration: none;
-      border-radius: 5px;
-      box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
-      color: $cxn;
-      &:hover {
-        color: white;
-        background: $cxn;
+  height: 100%;
+  .menu-btn-wrap {
+    .menu-btn {
+      display: block;
+      width: 21px;
+      height: 15px;
+      border: 3px solid #b45dea;
+      border-left: none;
+      border-right: none;
+      cursor: pointer;
+      position: fixed;
+      top: 12px;
+      left: 55px;
+      z-index: 2113;
+      &::before {
+        width: 100%;
+        height: 0;
+        content: '';
+        border-top: 3px solid #b45dea;
+        position: absolute;
+        top: 6px;
+        left: 0;
       }
     }
+  }
+
+  .menu {
+    width: 132px;
+    padding-top: 50px;
+    min-height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 213;
+    box-shadow: 0 0 5px #b45dea;
+    background: white;
+    ul {
+      li {
+        width: 100%;
+        height: 39px;
+        border-bottom: 1px solid #eee;
+        &:hover {
+          color: white;
+          background: $cxn;
+          a {
+            color: white;
+          }
+        }
+        a {
+          text-align: center;
+          display: block;
+          width: 100%;
+          height: 100%;
+          line-height: 35px;
+          color: $cxn;
+        }
+        .router-link-active {
+          background: #b45dea;
+          color: white;
+        }
+      }
+      li:nth-of-type(1) {
+        border-top: 1px solid #eee;
+      }
+    }
+  }
+  .section {
+    box-sizing: border-box;
+    padding: 50px 21px 0 21px;
+    min-height: 100%;
+    margin-left: 132px;
+  }
+  .nml {
+    margin-left: 0;
   }
 }
 </style>

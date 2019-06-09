@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="test">
     <h1>{{ title }}</h1>
     <emit-on v-on:titleChanged="updateTitle"></emit-on>
     <hr />

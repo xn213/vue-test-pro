@@ -21,12 +21,16 @@ export function getStudentJobData2({ date }) {
 
 // 获取实况天气(now) | 和风天气
 /**
- * @param {
+ *
+ *
+ * @export
+ * @param {*} { location } {
  * now	实况天气	商业/免费
  * forecast	3-10天预报	商业/免费
  * hourly	逐小时预报	商业/免费
  * lifestyle	生活指数	商业/免费
- * } param0
+ * }
+ * @returns
  */
 export function getNowWeatherApi({ location }) {
   return Axios({

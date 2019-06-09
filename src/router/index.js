@@ -5,7 +5,7 @@ import routes from './routes'
 Vue.use(VueRouter)
 
 const router = new VueRouter({
-  mode: 'history',
+  // mode: 'history', // 使用 history 模式, 部署有路径问题
   routes
 })
 

@@ -1,8 +1,11 @@
 <template>
   <div class="joke">
-    <button @click="getData">再来一个</button>
+    <button @click="getData">one more</button>
     <ol>
-      <li v-for="(item, index) in jokeList" :key="index">{{ item }}</li>
+      <li v-for="(item, index) in jokeList" :key="index">
+        <span>{{ index + 1 }}. </span>
+        {{ item }}
+      </li>
     </ol>
   </div>
 </template>
@@ -50,6 +53,7 @@ export default {
 // @import '@/assets/styles/global.scss';
 .joke {
   ol {
+    margin: 13px 0;
     li {
       margin-bottom: 10px;
       padding: 6px;
