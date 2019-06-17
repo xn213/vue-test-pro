@@ -2,8 +2,8 @@
   <div class="studentjob-table">
     <div class="table-wrap">
       <div class="table-th">
-        Top: {{ studentsJobData.topSalary }}<span> | </span> 平均:
-        {{ studentsJobData.avgSalary }}<span> | </span> 高薪率:
+        Top: {{ studentsJobData.topSalary }}<span> | </span> Avg:
+        {{ studentsJobData.avgSalary }}<span> | </span> GdRt:
         {{ studentsJobData.goodSalaryRate }}<span> | </span> Total:
         {{ studentsJobData.jobCount }}
       </div>

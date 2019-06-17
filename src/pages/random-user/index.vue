@@ -46,4 +46,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.random-user {
+  padding: 21px;
+}
+</style>

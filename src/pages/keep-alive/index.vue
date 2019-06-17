@@ -1,5 +1,5 @@
 <template>
-  <div class="index">
+  <div class="keep-alive">
     <h1>index</h1>
     <div class="tab flex">
       <span
@@ -33,4 +33,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.keep-alive {
+  padding: 21px;
+}
+</style>

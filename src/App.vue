@@ -9,7 +9,7 @@
       </ul>
     </nav>
     <!-- 内容 -->
-    <section class="section">
+    <section>
       <keep-alive>
         <!-- 需要缓存的视图组件 -->
         <router-view
@@ -20,7 +20,15 @@
       <!-- 不需要缓存的视图组件 -->
       <router-view v-if="!$route.meta.keepAlive"></router-view>
     </section>
-    <footer>footer | @2018-present &copy;xn213</footer>
+    <footer>
+      Copyright &copy; 2018-present
+      <a
+        href="https://xn213.github.io/fe-notes/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >@xn213</a
+      >
+    </footer>
   </div>
 </template>
 
@@ -113,9 +121,15 @@ $xn: #b45dea;
   }
   footer {
     padding: 21px;
+    color: #fff;
     font-size: 14px;
     text-align: center;
     background-image: linear-gradient(left top, #ff9191, #b45dea);
+    a {
+      text-decoration: underline;
+      // color: #fff;
+      cursor: pointer;
+    }
   }
 }
 </style>

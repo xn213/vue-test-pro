@@ -18,12 +18,10 @@
     <!-- 表格 -->
     <div class="table-wrap">
       <div class="table-th">
-        <span>
-          {{ studentsJobData.topSalary }}
-          {{ studentsJobData.avgSalary }}
-          {{ studentsJobData.goodSalaryRate }}
-          {{ studentsJobData.jobCount }}
-        </span>
+        Top: {{ studentsJobData.topSalary }}<span> | </span> Avg:
+        {{ studentsJobData.avgSalary }}<span> | </span> GdRt:
+        {{ studentsJobData.goodSalaryRate }}<span> | </span> Total:
+        {{ studentsJobData.jobCount }}
       </div>
       <el-table :data="studentJobList" v-loading="loading" border>
         <el-table-column
@@ -178,6 +176,7 @@ export default {
 
 <style lang="scss" scoped>
 .student-job {
+  padding: 21px;
   .pagination-wrap {
     margin: 21px 21px 0 0;
     text-align: right;

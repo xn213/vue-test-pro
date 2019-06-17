@@ -37,20 +37,18 @@
     <transition name="fade">
       <div class="weather-detail-wrap" v-show="isWeatherShow">
         <div class="weather-detail" v-if="weather.status === 'ok'">
-          <p>更新时间: {{ weather.update.loc }}</p>
           <p>天气: {{ weather.now.cond_txt }}</p>
           <p>
             <span class="weather-detail-tmp">
               温度: {{ weather.now.tmp }}<sup>。</sup>
             </span>
-          </p>
-          <p>
             <span class="weather-detail-fl">
               体感温度: {{ weather.now.fl }}<sup>。</sup>
             </span>
           </p>
           <p>相对湿度: {{ weather.now.hum }}%</p>
           <p>降水量: {{ weather.now.pcpn }}mm</p>
+          <p>更新: {{ weather.update.loc }}</p>
           <p>风向: {{ weather.now.wind_dir }}</p>
           <p>风力: {{ weather.now.wind_sc }}级</p>
           <p>风速: {{ weather.now.wind_spd }}km/h</p>
@@ -83,6 +81,7 @@
 </template>
 
 <script>
+// import Axios from 'axios'
 import { getNowWeatherApi, getForecastWeatherApi } from 'api/getWeather'
 export default {
   name: 'weather',
@@ -118,6 +117,17 @@ export default {
     this.getNowWeather()
     this.getForecastWeather()
   },
+  mounted() {
+    // 和风天气 接口
+    // Axios.get('https://free-api.heweather.net/s6/weather/now', {
+    //   params: {
+    //     location: 'beijing',
+    //     key: 'acc3e8d31740439f9132547841dc489a' // 和风天气账户 key 值
+    //   }
+    // }).then(res => {
+    //   console.log('get数据: ', res)
+    // })
+  },
   methods: {
     change() {
       if (this.params.location == '') return
@@ -147,12 +157,12 @@ export default {
 
 <style lang="scss" scoped>
 .weather {
-  padding-left: 13px;
+  padding: 21px;
   min-height: 100%;
   color: white;
   background-image: linear-gradient(#b45dea, #ff9191);
   &-newtab {
-    padding: 13px 0 21px;
+    padding-bottom: 21px;
     a {
       color: white;
     }
@@ -170,10 +180,13 @@ export default {
     }
   }
   &-detail {
-    width: 213px;
+    // width: 213px;
     padding-bottom: 8px;
     margin-bottom: 8px;
     border-bottom: 1px solid white;
+    p {
+      padding: 3px 0;
+    }
     &-tmp {
       font-size: 21px;
     }

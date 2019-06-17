@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import { getJoke } from 'api/getJoke'
 export default {
   name: 'joke',
@@ -22,18 +21,6 @@ export default {
   },
   created() {
     this.getData()
-  },
-  mounted() {
-    axios
-      .get('https://free-api.heweather.net/s6/weather/now', {
-        params: {
-          location: 'beijing',
-          key: 'acc3e8d31740439f9132547841dc489a' // 和风天气账户 key 值
-        }
-      })
-      .then(res => {
-        console.log('get数据: ', res)
-      })
   },
   methods: {
     async getData() {
@@ -48,14 +35,22 @@ export default {
 <style lang="scss" scoped>
 // @import '@/assets/styles/global.scss';
 .joke {
+  padding: 21px;
   ol {
+    // width: auto;
+    // display: inline-block;
+    // min-width: 113px;
     margin: 13px 0;
     li {
+      // width: auto;
+      // white-space: nowrap;
       margin-bottom: 10px;
       padding: 6px;
       border-radius: 5px;
       border: solid 1px #b45dea;
-      box-shadow: 2px 2px 2px #ccc;
+      color: #fff;
+      // box-shadow: 2px 2px 2px #ccc;
+      background-image: linear-gradient(to right, #fe9191, #b45dea);
     }
   }
 }
