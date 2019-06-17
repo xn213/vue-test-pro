@@ -1,4 +1,46 @@
+/**
+ * @file API.js
+ * @author xn213
+ * @date 2019
+ */
+
 import Axios from 'axios'
+
+// 模板 get
+let token = 'asdkjafjc'
+let sessionId = '12345'
+let recId = 'abcd'
+export function getData({ page, pageSize }) {
+  return Axios({
+    url: 'url',
+    method: 'get',
+    headers: {
+      Authorization: 'Bearer ' + token,
+      Cookie: 'sessionId=' + sessionId + '; recId=' + recId
+      // ...
+    },
+    params: {
+      page,
+      pageSize
+    }
+  })
+}
+// post
+export function postData() {
+  return Axios({
+    url: 'url',
+    method: 'post',
+    headers: {
+      Authorization: 'Bearer ' + token,
+      Cookie: 'sessionId=' + sessionId + '; recId=' + recId
+      // ...
+    },
+    data: {
+      // data: data,
+      // ...
+    }
+  })
+}
 
 // 获取学生工作信息
 export function getStudentJobData({ date }) {
@@ -21,8 +63,6 @@ export function getStudentJobData2({ date }) {
 
 // 获取实况天气(now) | 和风天气
 /**
- *
- *
  * @export
  * @param {*} { location } {
  * now	实况天气	商业/免费

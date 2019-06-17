@@ -1,20 +1,15 @@
 <template>
   <div id="app">
     <!-- 导航菜单 -->
-    <div class="menu-btn-wrap">
-      <i class="menu-btn" @click="isMenuShow = !isMenuShow"></i>
-    </div>
-    <transition name="slide-right">
-      <div class="menu" v-show="isMenuShow">
-        <ul>
-          <li v-for="(item, index) in links" :key="index">
-            <router-link :to="item.url">{{ item.text }}</router-link>
-          </li>
-        </ul>
-      </div>
-    </transition>
+    <nav class="nav">
+      <ul>
+        <li v-for="(item, index) in links" :key="index">
+          <router-link :to="item.url">{{ item.text }}</router-link>
+        </li>
+      </ul>
+    </nav>
     <!-- 内容 -->
-    <section class="section" :class="isMenuShow ? 'section' : 'nml'">
+    <section class="section">
       <keep-alive>
         <!-- 需要缓存的视图组件 -->
         <router-view
@@ -25,6 +20,7 @@
       <!-- 不需要缓存的视图组件 -->
       <router-view v-if="!$route.meta.keepAlive"></router-view>
     </section>
+    <footer>footer | @2018-present &copy;xn213</footer>
   </div>
 </template>
 
@@ -71,82 +67,55 @@ export default {
 </script>
 
 <style lang="scss">
-$cxn: #b45dea;
+$xn: #b45dea;
 #app {
-  height: 100%;
-  .menu-btn-wrap {
-    .menu-btn {
-      display: block;
-      width: 21px;
-      height: 15px;
-      border: 3px solid #b45dea;
-      border-left: none;
-      border-right: none;
-      cursor: pointer;
-      position: fixed;
-      top: 12px;
-      left: 55px;
-      z-index: 2113;
-      &::before {
-        width: 100%;
-        height: 0;
-        content: '';
-        border-top: 3px solid #b45dea;
-        position: absolute;
-        top: 6px;
-        left: 0;
-      }
-    }
+  header {
+    height: 50px;
+    background: #fff;
+    box-shadow: 0 0 3px $xn;
+    z-index: 2113;
   }
-
-  .menu {
-    width: 132px;
-    padding-top: 50px;
-    min-height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 213;
-    box-shadow: 0 0 5px #b45dea;
+  .nav {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    box-shadow: 0 0 5px $xn;
     background: white;
     ul {
+      display: flex;
       li {
-        width: 100%;
-        height: 39px;
-        border-bottom: 1px solid #eee;
+        flex: 1;
         &:hover {
-          color: white;
-          background: $cxn;
           a {
             color: white;
+            background: $xn;
           }
         }
         a {
+          display: inline-block;
+          height: 40px;
+          padding: 0 21px;
+          font-size: 14px;
+          line-height: 40px;
           text-align: center;
-          display: block;
-          width: 100%;
-          height: 100%;
-          line-height: 35px;
-          color: $cxn;
+          color: $xn;
         }
         .router-link-active {
-          background: #b45dea;
+          background: $xn;
+          color: white;
+        }
+        .router-link-exact-active {
+          background: $xn;
           color: white;
         }
       }
-      li:nth-of-type(1) {
-        border-top: 1px solid #eee;
-      }
     }
   }
-  .section {
-    box-sizing: border-box;
-    padding: 50px 21px 0 21px;
-    min-height: 100%;
-    margin-left: 132px;
-  }
-  .nml {
-    margin-left: 0;
+  footer {
+    padding: 21px;
+    font-size: 14px;
+    text-align: center;
+    background-image: linear-gradient(left top, #ff9191, #b45dea);
   }
 }
 </style>

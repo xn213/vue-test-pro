@@ -34,7 +34,8 @@
         ></el-table-column>
         <el-table-column fixed label="姓名" width="100">
           <div slot-scope="scope">
-            {{ scope.row.student | formatName }}
+            <!-- {{ scope.row.student | formatName }} -->
+            {{ scope.row.student }}
           </div>
         </el-table-column>
         <el-table-column
@@ -92,7 +93,7 @@ export default {
     return {
       data: {},
       loading: true,
-      date: '2019-05',
+      date: '2019-06',
       pageSizeArr: [10, 20, 30, 50],
       pagination: { ...initPagination() },
       studentJobList: [],

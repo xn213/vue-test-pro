@@ -7,8 +7,7 @@
       frameborder="0"
       src="https://apip.weatherdt.com/h5.html?id=7f0tSWM9fd"
     >
-      <div class="weather"></div
-    ></iframe>
+    </iframe>
   </div>
 </template>
 

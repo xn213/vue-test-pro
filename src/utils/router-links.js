@@ -1,17 +1,16 @@
 export default function routerLinks() {
   return [
-    { url: '/weather', text: 'weather' },
     {
-      url: '/weather-h5',
-      text: 'weather-h5'
+      url: '/weather',
+      text: 'weather'
       // target: '_blank'
     },
     { url: '/joke', text: 'joke' },
     { url: '/tao24', text: '24tao' },
-    { url: '/student-job', text: 'student-job' },
-    { url: '/RX-Counter', text: 'RX-Counter' },
-    { url: '/random-user', text: 'random-user' },
-    { url: '/keep-alive', text: 'keep-alive' },
+    { url: '/student-job', text: 'studentJob' },
+    { url: '/RX-Counter', text: 'RXCounter' },
+    { url: '/random-user', text: 'randomUser' },
+    { url: '/keep-alive', text: 'keepAlive' },
     { url: '/test', text: 'test' }
   ]
 }

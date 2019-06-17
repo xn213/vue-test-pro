@@ -17,31 +17,27 @@ export default {
   name: 'joke',
   data() {
     return {
-      jokeList: [],
-      tq: '1111'
+      jokeList: []
     }
   },
   created() {
     this.getData()
-    console.log(this.tq)
   },
   mounted() {
     axios
       .get('https://free-api.heweather.net/s6/weather/now', {
         params: {
           location: 'beijing',
-          key: 'acc3e8d31740439f9132547841dc489a'
+          key: 'acc3e8d31740439f9132547841dc489a' // 和风天气账户 key 值
         }
       })
       .then(res => {
-        console.log(this.tq, res)
-        // this.tq = res.data
+        console.log('get数据: ', res)
       })
   },
   methods: {
     async getData() {
       let res = await getJoke()
-      console.log(res.data)
       let joke = res.data.joke
       this.jokeList.push(joke)
     }
