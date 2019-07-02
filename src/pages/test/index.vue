@@ -48,6 +48,8 @@ import componentA from './component/provideInject/componentA'
 
 import { getRandomUsersApi } from 'api/randomUsersApi'
 import { mapMutations, mapState } from 'vuex'
+
+import { lStorage, sStorage } from 'utils/storage.js'
 export default {
   name: 'Test',
   components: { emitOn, testBus, attrsListeners, provideInject, componentA },
@@ -62,6 +64,8 @@ export default {
   },
   created() {
     this.changeCity('上海'), this.getRandomUsers()
+    this.testStroage()
+    console.log('获取的storage: ', lStorage.getItem(lStorage.WX_USER_ID)) // ['val', 'array']
   },
   mounted() {
     const componentAA = this.$refs.componentAA
@@ -86,6 +90,10 @@ export default {
     async getRandomUsers() {
       let randomUsers = await getRandomUsersApi(this.randomUserParams)
       console.log('randomUsers: ', randomUsers)
+    },
+    testStroage(){
+      lStorage.setItem(lStorage.WX_USER_ID, ['val', 'array'])
+      console.log(lStorage.getItem(lStorage.WX_USER_ID)) // ['val', 'array']
     }
   }
 }
