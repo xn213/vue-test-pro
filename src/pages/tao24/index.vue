@@ -59,9 +59,6 @@ export default {
       }
     }
   },
-  // created() {
-  //   this.getList()
-  // },
   mounted() {
     // 存在问题, 其他页面有滚动条时, 也会执行此监听,则获取不到方法内容报错, toDo
     document
@@ -94,6 +91,13 @@ export default {
       }
     },
     async getList() {
+      // const url = `http://tb.api.zhuamimi.cn/taobao/list/3756?page=${this.params.page}&rows=${this.params.rows}`
+      // return url => {
+      //   console.log(url)
+      //   const img = new Image()
+      //   img.url = url
+      // }
+
       let res = await getList(this.params)
       this.list.push(...res.data)
       console.log(this.list)

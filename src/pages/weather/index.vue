@@ -110,7 +110,7 @@ export default {
         daily_forecast: []
       },
       loading: true,
-      isWeatherShow: false
+      isWeatherShow: true
     }
   },
   created() {

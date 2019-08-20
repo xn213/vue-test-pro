@@ -5,6 +5,7 @@ export default function routerLinks() {
       text: 'weather'
       // target: '_blank'
     },
+    { url: '/wlcx', text: 'wlcx' },
     { url: '/joke', text: 'joke' },
     { url: '/tao24', text: '24tao' },
     { url: '/student-job', text: 'studentJob' },

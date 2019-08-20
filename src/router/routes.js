@@ -4,6 +4,7 @@ const tao24 = () => import('pages/tao24')
 const studentJob = () => import('pages/student-job')
 const RXCounter = () => import('pages/RX-Counter')
 const randomUser = () => import('pages/random-user')
+const changan12hours = () => import('pages/changan12hours')
 const Joke = () => import('pages/joke')
 const Test = () => import('pages/test')
 
@@ -39,6 +40,11 @@ const routes = [
       deepth: 1,
       keepAlive: true
     }
+  },
+  {
+    path: '/wlcx',
+    name: 'wlcx',
+    component: changan12hours
   },
   {
     path: '/tao24',

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import './style/index.scss'
+import 'bootstrap/dist/css/bootstrap.css'
 
 import bus from './module/Bus'
 import store from './store'
