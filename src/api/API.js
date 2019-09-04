@@ -113,3 +113,37 @@ export function getRandomUsersApi({ results, inc }) {
     }
   })
 }
+
+// 获取昨天时间
+export function getYesterdayTime(){
+  return [
+    moment()
+      .substract(1, 'day')
+      .startOf('day')
+      .valueOf(),
+    moment()
+      .substract(1, 'day')
+      .endOf('day')
+      .valueOf(),
+  ]
+}
+// 获取最近30天时间
+export function get30DayTime(){
+  return [
+    moment()
+      .substract(30, 'day')
+      .valueOf(),
+    moment().valueOf()
+  ]
+}
+// 获取今天时间
+export function getTodayTime(){
+  return [
+    moment()
+      .startOf('day')
+      .valueOf(),
+    moment()
+      .endOf('day')
+      .valueOf()
+  ]
+}
