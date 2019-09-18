@@ -124,7 +124,7 @@ $xn: #b45dea;
     color: #fff;
     font-size: 14px;
     text-align: center;
-    background-image: linear-gradient(left top, #ff9191, #b45dea);
+    background-image: linear-gradient(to left, #ff9191, #b45dea);
     a {
       text-decoration: underline;
       // color: #fff;
