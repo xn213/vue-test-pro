@@ -26,11 +26,11 @@ export default {
   name: 'index',
   data() {
     return {
-      tabs: ['我的', '发现', '朋友', '视频']
-    }
+      tabs: ['我的', '发现', '朋友', '视频'],
+    };
   },
-  methods: {}
-}
+  methods: {},
+};
 </script>
 
 <style lang="scss" scoped>

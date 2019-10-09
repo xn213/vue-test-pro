@@ -1,14 +1,10 @@
 <template>
-  <div>
-    
-  </div>
+  <div></div>
 </template>
 
 <script>
 export default {
-  name: 'secret'
-}
+  name: 'secret',
+};
 </script>
-<style scoped>
-
-</style>
+<style scoped></style>

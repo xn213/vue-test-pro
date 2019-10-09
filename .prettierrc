@@ -1,0 +1,9 @@
+{
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "eslintIntegration": true,
+  "stylelintIntegration": true,
+  "prettier.useTabs": false,
+  "prettier.semi": true,
+  "tabWidth": 2
+}

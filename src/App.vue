@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- 导航菜单 -->
-    <nav class="nav">
+    <nav v-waves class="nav">
       <ul>
         <li v-for="(item, index) in links" :key="index">
           <router-link :to="item.url">{{ item.text }}</router-link>
@@ -20,7 +20,7 @@
       <!-- 不需要缓存的视图组件 -->
       <router-view v-if="!$route.meta.keepAlive"></router-view>
     </section>
-    <footer>
+    <footer v-waves>
       Copyright &copy; 2018-present
       <a
         href="https://xn213.github.io/fe-notes/"
@@ -90,6 +90,7 @@ $xn: #b45dea;
     box-shadow: 0 0 5px $xn;
     background: white;
     ul {
+      margin-bottom: 0;
       display: flex;
       li {
         flex: 1;
