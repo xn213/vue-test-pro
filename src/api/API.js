@@ -115,6 +115,17 @@ export function getRandomUsersApi({ results, inc }) {
   })
 }
 
+/** 获取本地json
+ * (本地json 需放在static文件夹下！但是直接访问打包的index.html文件无法获取数据)
+ * 通过命令行 http-server 启动http静态服务器,就可以访问
+ */
+export function getStudentJobInfoFromJson() {
+  return Axios({
+    method: 'get',
+    url: './static/data/qfjy.json',
+  })
+}
+
 // 获取昨天时间
 export function getYesterdayTime() {
   return [
