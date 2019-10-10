@@ -1,25 +1,27 @@
 <template>
   <div id="app">
-    <!-- 导航菜单 -->
-    <nav v-waves class="nav">
-      <ul>
-        <li v-for="(item, index) in links" :key="index">
-          <router-link :to="item.url">{{ item.text }}</router-link>
-        </li>
-      </ul>
-    </nav>
-    <!-- 内容 -->
-    <section>
-      <keep-alive>
-        <!-- 需要缓存的视图组件 -->
-        <router-view
-          :include="include"
-          v-if="$route.meta.keepAlive"
-        ></router-view>
-      </keep-alive>
-      <!-- 不需要缓存的视图组件 -->
-      <router-view v-if="!$route.meta.keepAlive"></router-view>
-    </section>
+    <div class="content">
+      <!-- 导航菜单 -->
+      <nav class="nav">
+        <ul>
+          <li v-for="(item, index) in links" :key="index">
+            <router-link :to="item.url">{{ item.text }}</router-link>
+          </li>
+        </ul>
+      </nav>
+      <!-- 内容 -->
+      <section>
+        <keep-alive>
+          <!-- 需要缓存的视图组件 -->
+          <router-view
+            :include="include"
+            v-if="$route.meta.keepAlive"
+          ></router-view>
+        </keep-alive>
+        <!-- 不需要缓存的视图组件 -->
+        <router-view v-if="!$route.meta.keepAlive"></router-view>
+      </section>
+    </div>
     <footer v-waves>
       Copyright &copy; 2018-present
       <a
@@ -77,50 +79,57 @@ export default {
 <style lang="scss">
 $xn: #b45dea;
 #app {
-  header {
-    height: 50px;
-    background: #fff;
-    box-shadow: 0 0 3px $xn;
-    z-index: 2113;
-  }
-  .nav {
-    width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-    box-shadow: 0 0 5px $xn;
-    background: white;
-    ul {
-      margin-bottom: 0;
-      display: flex;
-      li {
-        flex: 1;
-        &:hover {
-          a {
-            color: white;
-            background: $xn;
+  height: 100%;
+  .content {
+    box-sizing: border-box;
+    min-height: 100%;
+    padding-bottom: 63px;
+    // header {
+    //   height: 50px;
+    //   background: #fff;
+    //   box-shadow: 0 0 3px $xn;
+    //   z-index: 2113;
+    // }
+    .nav {
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      box-shadow: 0 0 5px $xn;
+      background: white;
+      ul {
+        margin-bottom: 0;
+        display: flex;
+        li {
+          flex: 1;
+          &:hover {
+            a {
+              color: white;
+              background: $xn;
+            }
           }
-        }
-        a {
-          display: inline-block;
-          height: 40px;
-          padding: 0 21px;
-          font-size: 14px;
-          line-height: 40px;
-          text-align: center;
-          color: $xn;
-        }
-        .router-link-active {
-          background: $xn;
-          color: white;
-        }
-        .router-link-exact-active {
-          background: $xn;
-          color: white;
+          a {
+            display: inline-block;
+            height: 40px;
+            padding: 0 21px;
+            font-size: 14px;
+            line-height: 40px;
+            text-align: center;
+            color: $xn;
+          }
+          .router-link-active {
+            background: $xn;
+            color: white;
+          }
+          .router-link-exact-active {
+            background: $xn;
+            color: white;
+          }
         }
       }
     }
   }
   footer {
+    margin-top: -63px;
     padding: 21px;
     color: #fff;
     font-size: 14px;

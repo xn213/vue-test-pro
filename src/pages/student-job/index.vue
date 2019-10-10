@@ -91,7 +91,7 @@ export default {
     return {
       data: {},
       loading: true,
-      date: '2019-06',
+      date: '2019-09',
       pageSizeArr: [10, 20, 30, 50],
       pagination: { ...initPagination() },
       studentJobList: [],
