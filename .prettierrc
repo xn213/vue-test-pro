@@ -4,6 +4,7 @@
   "eslintIntegration": true,
   "stylelintIntegration": true,
   "prettier.useTabs": false,
-  "prettier.semi": true,
-  "tabWidth": 2
+  "prettier.semi": false,
+  "tabWidth": 2,
+  "semi": false
 }

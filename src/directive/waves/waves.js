@@ -11,7 +11,7 @@ export default {
             ele: el, // 波纹作用元素
             type: 'hit', // hit 点击位置扩散 center中心点扩展
             // color: 'rgba(0, 0, 0, 0.15)' // 波纹颜色
-            color: '#b45dea' // 波纹颜色
+            color: '#b45dea', // 波纹颜色
           },
           customOpts
         )
@@ -57,5 +57,5 @@ export default {
       },
       false
     )
-  }
+  },
 }
