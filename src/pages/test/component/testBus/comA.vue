@@ -10,14 +10,14 @@ export default {
   name: 'comA',
   data() {
     return {
-      name: 'tom'
+      name: 'tom',
     }
   },
   methods: {
     send() {
       this.$root.bus.$emit('data-a', this.name)
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -6,7 +6,7 @@ export function getList({ page, rows }) {
     method: 'get',
     params: {
       page,
-      rows
-    }
+      rows,
+    },
   })
 }

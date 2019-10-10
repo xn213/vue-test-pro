@@ -6,8 +6,8 @@ export function getStudentJobData1({ date }) {
     'https://jx.1000phone.net/teacher.php/Api/studentJobData_month',
     {
       params: {
-        date
-      }
+        date,
+      },
     }
   )
 }
@@ -17,7 +17,7 @@ export function getStudentJobData({ date }) {
     url: '/api/teacher.php/Api/studentJobData_month',
     method: 'get',
     params: {
-      date
-    }
+      date,
+    },
   })
 }

@@ -10,7 +10,7 @@ export default {
   data() {
     return {
       name: '',
-      age: ''
+      age: '',
     }
   },
   mounted() {
@@ -20,7 +20,7 @@ export default {
     this.$root.bus.$on('data-b', age => {
       this.age = age
     })
-  }
+  },
 }
 </script>
 

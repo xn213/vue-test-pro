@@ -12,7 +12,7 @@ const routes = [
   {
     path: '/',
     name: 'root',
-    redirect: '/weather'
+    redirect: '/weather',
   },
   {
     path: '/weather',
@@ -20,8 +20,8 @@ const routes = [
     component: weather,
     meta: {
       deepth: 1,
-      keepAlive: true // 需要被缓存
-    }
+      keepAlive: true, // 需要被缓存
+    },
   },
   {
     path: '/weather-h5',
@@ -29,8 +29,8 @@ const routes = [
     component: weatherH5,
     meta: {
       deepth: 1,
-      keepAlive: true // 需要被缓存
-    }
+      keepAlive: true, // 需要被缓存
+    },
   },
   {
     path: '/joke',
@@ -38,18 +38,18 @@ const routes = [
     component: Joke,
     meta: {
       deepth: 1,
-      keepAlive: true
-    }
+      keepAlive: true,
+    },
   },
   {
     path: '/wlcx',
     name: 'wlcx',
-    component: changan12hours
+    component: changan12hours,
   },
   {
     path: '/tao24',
     name: 'tao24',
-    component: tao24
+    component: tao24,
   },
   {
     path: '/student-job',
@@ -57,8 +57,8 @@ const routes = [
     component: studentJob,
     meta: {
       deepth: 1,
-      keepAlive: true
-    }
+      keepAlive: true,
+    },
   },
   {
     path: '/RX-Counter',
@@ -66,8 +66,8 @@ const routes = [
     component: RXCounter,
     meta: {
       deepth: 1,
-      keepAlive: true
-    }
+      keepAlive: true,
+    },
   },
   {
     path: '/random-user',
@@ -75,16 +75,16 @@ const routes = [
     component: randomUser,
     meta: {
       deepth: 1,
-      keepAlive: true
-    }
+      keepAlive: true,
+    },
   },
   {
     path: '/keep-alive',
     name: 'keep-alive',
     component: () => import('pages/keep-alive'),
     meta: {
-      deepth: 0.5
-    }
+      deepth: 0.5,
+    },
   },
   {
     path: '/list',
@@ -92,22 +92,22 @@ const routes = [
     component: () => import('pages/keep-alive/list'),
     meta: {
       deepth: 1,
-      keepAlive: true // 需要被缓存
-    }
+      keepAlive: true, // 需要被缓存
+    },
   },
   {
     path: 'detail',
     name: 'detail',
     component: () => import('pages/keep-alive/detail'),
     meta: {
-      deepth: 2
-    }
+      deepth: 2,
+    },
   },
   {
     path: '/test',
     name: 'test',
-    component: Test
-  }
+    component: Test,
+  },
 ]
 
 export default routes

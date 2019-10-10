@@ -2,7 +2,7 @@ const path = require('path')
 
 // 开发环境代理
 const proxyConfig = {
-  target: 'http://jx.1000phone.net'
+  target: 'http://jx.1000phone.net',
 }
 
 function resolve(dir) {
@@ -22,8 +22,8 @@ module.exports = {
         utils: resolve('src/utils'),
         api: resolve('src/api'),
         components: resolve('src/components'),
-        pages: resolve('src/pages')
-      }
+        pages: resolve('src/pages'),
+      },
     },
     devServer: {
       proxy: {
@@ -32,13 +32,13 @@ module.exports = {
           changeOrigin: true,
           ...proxyConfig,
           pathRewrite: {
-            '^/api': '/'
-          }
+            '^/api': '/',
+          },
           // headers: {
           //   'Content-Type': 'application/json',
           // },
-        }
-      }
-    }
-  }
+        },
+      },
+    },
+  },
 }

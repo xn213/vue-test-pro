@@ -9,12 +9,12 @@ export default {
   name: 'childCom3',
   props: {
     fbb: String,
-    title: String
+    title: String,
   },
   data() {
     return {}
   },
-  methods: {}
+  methods: {},
 }
 </script>
 

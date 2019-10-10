@@ -10,15 +10,15 @@ export default {
   name: 'componentA',
   data() {
     return {
-      title: 'vue.js'
+      title: 'vue.js',
     }
   },
   methods: {
     sayHello() {
       // window.alert('Hello')
       console.log('hello')
-    }
-  }
+    },
+  },
 }
 </script>
 

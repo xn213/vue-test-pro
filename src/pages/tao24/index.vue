@@ -55,8 +55,8 @@ export default {
       list: [],
       params: {
         page: 1,
-        rows: 20
-      }
+        rows: 20,
+      },
     }
   },
   mounted() {
@@ -116,7 +116,7 @@ export default {
           method.apply(self, args)
         }, delay)
       }
-    }
+    },
   },
   filters: {
     formatUserType(val) {
@@ -129,8 +129,8 @@ export default {
     },
     formatPrice(val) {
       return val.toFixed(2)
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -6,7 +6,7 @@ export function getRandomUsersApi({ results, inc }) {
     method: 'get',
     params: {
       results,
-      inc
-    }
+      inc,
+    },
   })
 }

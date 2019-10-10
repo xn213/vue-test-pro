@@ -70,7 +70,7 @@ export default {
       pagination: { ...initPagination() },
       studentJobList: [],
       list: [],
-      studentsJobData: {}
+      studentsJobData: {},
     }
   },
   created() {
@@ -121,15 +121,15 @@ export default {
       this.studentsJobData.avgSalary = data.avgSalary
       this.studentsJobData.goodSalaryRate = data.goodSalaryRate
       this.studentsJobData.jobCount = data.jobCount
-    }
+    },
   },
   filters: {
     formatName(str) {
       // var reg = /(?<=.)./g
       let ruten = str.substring(1)
       return str.replace(ruten, '**')
-    }
-  }
+    },
+  },
 }
 </script>
 

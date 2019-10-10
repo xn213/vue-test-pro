@@ -13,7 +13,7 @@ import comB from './comB'
 import comC from './comC'
 export default {
   name: '',
-  components: { comA, comB, comC }
+  components: { comA, comB, comC },
 }
 </script>
 

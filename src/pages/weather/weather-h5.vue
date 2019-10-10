@@ -24,7 +24,7 @@ export default {
     oIframe.style.width = deviceWidth - 175 + 'px'
     oIframe.style.height = deviceHeight - 49 + 'px'
   },
-  methods: {}
+  methods: {},
 }
 </script>
 

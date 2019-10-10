@@ -9,9 +9,9 @@ export default {
   inject: {
     theme: {
       //函数式组件取值不一样
-      default: () => ({})
-    }
-  }
+      default: () => ({}),
+    },
+  },
 }
 </script>
 

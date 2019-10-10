@@ -20,24 +20,24 @@
 </template>
 
 <script>
-const chars = '靖安司 张都尉 狼卫 位于 已入 平康 怀远 永宁 皇城'.split(' ');
+const chars = '靖安司 张都尉 狼卫 位于 已入 平康 怀远 永宁 皇城'.split(' ')
 export default {
   name: 'changan-12hours',
   data() {
     return {
       chars,
       lights: Array(6).fill(0),
-    };
+    }
   },
   computed: {
     num() {
-      return parseInt(this.lights.join(''), 2);
+      return parseInt(this.lights.join(''), 2)
     },
     char() {
-      return this.chars[this.num];
+      return this.chars[this.num]
     },
   },
-};
+}
 </script>
 <style scoped>
 .wlcx {

@@ -2,7 +2,7 @@ export default function routerLinks() {
   return [
     {
       url: '/weather',
-      text: 'weather'
+      text: 'weather',
       // target: '_blank'
     },
     { url: '/wlcx', text: 'wlcx' },
@@ -12,7 +12,7 @@ export default function routerLinks() {
     { url: '/RX-Counter', text: 'RXCounter' },
     { url: '/random-user', text: 'randomUser' },
     { url: '/keep-alive', text: 'keepAlive' },
-    { url: '/test', text: 'test' }
+    { url: '/test', text: 'test' },
   ]
 }
 // <!-- weather-h5 -->

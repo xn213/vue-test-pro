@@ -5,6 +5,6 @@ export default function initPagination() {
     total: 0,
     showElevator: true,
     showTotal: true,
-    showSizer: true
+    showSizer: true,
   }
 }

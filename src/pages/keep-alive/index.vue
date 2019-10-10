@@ -27,10 +27,10 @@ export default {
   data() {
     return {
       tabs: ['我的', '发现', '朋友', '视频'],
-    };
+    }
   },
   methods: {},
-};
+}
 </script>
 
 <style lang="scss" scoped>

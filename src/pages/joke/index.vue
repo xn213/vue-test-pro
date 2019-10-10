@@ -16,7 +16,7 @@ export default {
   name: 'joke',
   data() {
     return {
-      jokeList: []
+      jokeList: [],
     }
   },
   created() {
@@ -27,8 +27,8 @@ export default {
       let res = await getJoke()
       let joke = res.data.joke
       this.jokeList.push(joke)
-    }
-  }
+    },
+  },
 }
 </script>
 

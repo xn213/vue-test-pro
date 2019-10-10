@@ -12,10 +12,10 @@ export default {
   name: 'random-user',
   data() {
     return {
-      date: '2016-11'
+      date: '2016-11',
     }
   },
-  components: { studentjobTable }
+  components: { studentjobTable },
 }
 </script>
 

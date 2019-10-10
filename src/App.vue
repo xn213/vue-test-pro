@@ -40,7 +40,7 @@ export default {
     return {
       include: [],
       isMenuShow: true,
-      links: routerLinks() // 3种方式
+      links: routerLinks(), // 3种方式
       // links: [
       //   { url: '/index', text: 'index' },
       //   { url: '/weather', text: 'weather' },
@@ -69,8 +69,8 @@ export default {
         var index = this.include.indexOf(from.name)
         index !== -1 && this.include.splice(index, 1)
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

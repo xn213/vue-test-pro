@@ -18,14 +18,14 @@
 export default {
   name: 'list',
   data: () => ({
-    lists: []
+    lists: [],
   }),
   methods: {},
   mounted() {
     setTimeout(() => {
       this.lists = ['😨', '🤡', '👻', '👩', '💖']
     }, 300)
-  }
+  },
 }
 </script>
 

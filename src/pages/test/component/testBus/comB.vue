@@ -10,14 +10,14 @@ export default {
   name: 'comB',
   data() {
     return {
-      age: 24
+      age: 24,
     }
   },
   methods: {
     send() {
       this.$root.bus.$emit('data-b', this.age)
-    }
-  }
+    },
+  },
 }
 </script>
 

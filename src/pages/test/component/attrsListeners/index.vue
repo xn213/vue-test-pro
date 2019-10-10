@@ -10,7 +10,7 @@ import childCom1 from './childCom1'
 export default {
   name: 'attrsListeners',
   components: {
-    childCom1
+    childCom1,
   },
   data() {
     return {
@@ -18,10 +18,10 @@ export default {
       faa: 'javascript',
       fbb: 'html5',
       fcc: 'css3',
-      title: '大前端'
+      title: '大前端',
     }
   },
-  methods: {}
+  methods: {},
 }
 </script>
 

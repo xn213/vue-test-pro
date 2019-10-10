@@ -27,9 +27,9 @@ export default {
       loading: 'true',
       params: {
         results: 21,
-        inc: 'name,gender,email,phone,cell,nat,'
+        inc: 'name,gender,email,phone,cell,nat,',
       },
-      list: []
+      list: [],
     }
   },
   created() {
@@ -41,8 +41,8 @@ export default {
       this.list = res.data.results
       this.loading = false
       console.log('random-user-data: ', res.data.results)
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -49,7 +49,7 @@ import componentA from './component/provideInject/componentA'
 import { getRandomUsersApi } from 'api/randomUsersApi'
 import { mapMutations, mapState } from 'vuex'
 
-import { lStorage, sStorage } from 'utils/storage.js'
+import { lStorage } from 'utils/storage.js'
 export default {
   name: 'Test',
   components: { emitOn, testBus, attrsListeners, provideInject, componentA },
@@ -58,8 +58,8 @@ export default {
       title: '父组件的值,点击子组件将会改变',
       randomUserParams: {
         results: 21,
-        inc: 'gender,email,phone,cell,nat'
-      }
+        inc: 'gender,email,phone,cell,nat',
+      },
     }
   },
   created() {
@@ -74,7 +74,7 @@ export default {
     componentAA.sayHello() // 弹窗
   },
   computed: {
-    ...mapState(['city'])
+    ...mapState(['city']),
   },
   methods: {
     // 方法二: $eimt/$on or eventBus
@@ -91,11 +91,11 @@ export default {
       let randomUsers = await getRandomUsersApi(this.randomUserParams)
       console.log('randomUsers: ', randomUsers)
     },
-    testStroage(){
+    testStroage() {
       lStorage.setItem(lStorage.WX_USER_ID, ['val', 'array'])
       console.log(lStorage.getItem(lStorage.WX_USER_ID)) // ['val', 'array']
-    }
-  }
+    },
+  },
 }
 </script>
 

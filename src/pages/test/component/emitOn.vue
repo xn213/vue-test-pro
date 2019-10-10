@@ -10,14 +10,14 @@ export default {
   name: 'emitOn',
   data() {
     return {
-      child: '我是子组件传递的内容'
+      child: '我是子组件传递的内容',
     }
   },
   methods: {
     changeTitle() {
       this.$emit('titleChanged', this.child)
-    }
-  }
+    },
+  },
 }
 </script>
 

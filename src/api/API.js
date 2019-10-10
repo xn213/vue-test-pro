@@ -5,6 +5,7 @@
  */
 
 import Axios from 'axios'
+import moment from 'moment'
 
 // 模板 get
 let token = 'asdkjafjc'
@@ -16,13 +17,13 @@ export function getData({ page, pageSize }) {
     method: 'get',
     headers: {
       Authorization: 'Bearer ' + token,
-      Cookie: 'sessionId=' + sessionId + '; recId=' + recId
+      Cookie: 'sessionId=' + sessionId + '; recId=' + recId,
       // ...
     },
     params: {
       page,
-      pageSize
-    }
+      pageSize,
+    },
   })
 }
 // post
@@ -32,13 +33,13 @@ export function postData() {
     method: 'post',
     headers: {
       Authorization: 'Bearer ' + token,
-      Cookie: 'sessionId=' + sessionId + '; recId=' + recId
+      Cookie: 'sessionId=' + sessionId + '; recId=' + recId,
       // ...
     },
     data: {
       // data: data,
       // ...
-    }
+    },
   })
 }
 
@@ -46,8 +47,8 @@ export function postData() {
 export function getStudentJobData({ date }) {
   return Axios.get('/api/teacher.php/Api/studentJobData_month', {
     params: {
-      date
-    }
+      date,
+    },
   })
 }
 // 写法2
@@ -56,8 +57,8 @@ export function getStudentJobData2({ date }) {
     url: '/api/teacher.php/Api/studentJobData_month',
     method: 'get',
     params: {
-      date
-    }
+      date,
+    },
   })
 }
 
@@ -78,8 +79,8 @@ export function getNowWeatherApi({ location }) {
     method: 'get',
     params: {
       location,
-      key: 'acc3e8d31740439f9132547841dc489a'
-    }
+      key: 'acc3e8d31740439f9132547841dc489a',
+    },
   })
 }
 
@@ -89,8 +90,8 @@ export function getJoke() {
     url: 'https://icanhazdadjoke.com/',
     method: 'get',
     headers: {
-      Accept: 'application/json'
-    }
+      Accept: 'application/json',
+    },
   })
 }
 
@@ -109,13 +110,13 @@ export function getRandomUsersApi({ results, inc }) {
     method: 'get',
     params: {
       results,
-      inc
-    }
+      inc,
+    },
   })
 }
 
 // 获取昨天时间
-export function getYesterdayTime(){
+export function getYesterdayTime() {
   return [
     moment()
       .substract(1, 'day')
@@ -128,22 +129,22 @@ export function getYesterdayTime(){
   ]
 }
 // 获取最近30天时间
-export function get30DayTime(){
+export function get30DayTime() {
   return [
     moment()
       .substract(30, 'day')
       .valueOf(),
-    moment().valueOf()
+    moment().valueOf(),
   ]
 }
 // 获取今天时间
-export function getTodayTime(){
+export function getTodayTime() {
   return [
     moment()
       .startOf('day')
       .valueOf(),
     moment()
       .endOf('day')
-      .valueOf()
+      .valueOf(),
   ]
 }

@@ -6,7 +6,7 @@ Vue.use(VueRouter)
 
 const router = new VueRouter({
   // mode: 'history', // 使用 history 模式, 部署有路径问题
-  routes
+  routes,
 })
 
 router.beforeEach((to, from, next) => {

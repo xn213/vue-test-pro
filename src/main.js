@@ -20,10 +20,10 @@ Vue.config.productionTip = false
 new Vue({
   data() {
     return {
-      bus
+      bus,
     }
   },
   store,
   router,
-  render: h => h(App)
+  render: h => h(App),
 }).$mount('#app')

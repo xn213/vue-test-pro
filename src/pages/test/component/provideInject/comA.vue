@@ -18,7 +18,7 @@ export default {
   provide() {
     return {
       name: 'xn213',
-      theme: this // 方法一：提供祖先组件的实例
+      theme: this, // 方法一：提供祖先组件的实例
       // theme: {
       //   color: this.color //这种方式绑定的数据并不是可响应的
       // } // 即A组件的color变化后，组件D、E、F不会跟着变
@@ -26,7 +26,7 @@ export default {
   },
   data() {
     return {
-      color: 'blue'
+      color: 'blue',
     }
   },
   methods: {
@@ -36,7 +36,7 @@ export default {
       } else {
         this.color = this.color === 'red' ? 'blue' : 'red'
       }
-    }
+    },
     // 方法二:使用2.6最新API Vue.observable 优化响应式 provide
     // provide() {
     //   this.theme = Vue.observable({
@@ -55,7 +55,7 @@ export default {
     //     }
     //   }
     // }
-  }
+  },
 }
 </script>
 

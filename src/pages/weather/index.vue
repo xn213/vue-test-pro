@@ -88,13 +88,13 @@ export default {
   data() {
     return {
       params: {
-        location: '杭州'
+        location: '杭州',
       },
       weather: {
         status: '',
         basic: {
           admin_area: '浙江',
-          location: '杭州'
+          location: '杭州',
         },
         now: {
           tmp: '',
@@ -102,15 +102,15 @@ export default {
           cond_txt: '',
           hum: '',
           pcpn: '',
-          vis: ''
+          vis: '',
         },
         update: {
-          loc: ''
+          loc: '',
         },
-        daily_forecast: []
+        daily_forecast: [],
       },
       loading: true,
-      isWeatherShow: true
+      isWeatherShow: true,
     }
   },
   created() {
@@ -150,8 +150,8 @@ export default {
       let wObj = res.data.HeWeather6[0]
       this.weather.daily_forecast = wObj.daily_forecast
       console.log('getForecastWeather: ', res, wObj)
-    }
-  }
+    },
+  },
 }
 </script>
 

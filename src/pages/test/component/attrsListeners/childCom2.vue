@@ -13,13 +13,13 @@ export default {
   name: 'childCom2',
   components: { childCom3 },
   props: {
-    faa: String
+    faa: String,
   },
   inheritAttrs: false, // 可以关闭自动挂载到组件根元素上的没有在props声明的属性
   created() {
     // eslint-disable-next-line no-console
     console.log('this.$attrs: ', this.$attrs)
-  }
+  },
 }
 </script>
 

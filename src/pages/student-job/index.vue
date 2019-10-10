@@ -83,8 +83,8 @@
 </template>
 
 <script>
-import { initPagination } from 'utils';
-import { getStudentJobData } from 'api/studentJobData';
+import { initPagination } from 'utils'
+import { getStudentJobData } from 'api/studentJobData'
 export default {
   name: 'student-job',
   data() {
@@ -116,10 +116,10 @@ export default {
         //     },
         //   ]
       },
-    };
+    }
   },
   created() {
-    this.getData(this.date);
+    this.getData(this.date)
     // console.log('pagination', this.pagination)
   },
   mounted() {
@@ -129,49 +129,49 @@ export default {
   methods: {
     // 每页显示变化
     handleSizeChange(val) {
-      this.pagination.pageSize = val;
-      this.handleStudentJobList();
+      this.pagination.pageSize = val
+      this.handleStudentJobList()
     },
     // 当前页数变化
     handleCurrentChange(val) {
-      this.pagination.current = val;
-      this.handleStudentJobList();
+      this.pagination.current = val
+      this.handleStudentJobList()
     },
     // 获取数据
     async getData(date) {
       // 异步获取数据
-      let res = await getStudentJobData({ date });
-      this.data = res.data;
-      this.pagination.total = res.data.student.length;
-      this.handleStudentJobList();
-      this.handleData(res.data);
-      this.loading = false;
+      let res = await getStudentJobData({ date })
+      this.data = res.data
+      this.pagination.total = res.data.student.length
+      this.handleStudentJobList()
+      this.handleData(res.data)
+      this.loading = false
     },
     // 前端分页
     handleStudentJobList() {
-      let ct = this.pagination.current;
-      let ps = this.pagination.pageSize;
+      let ct = this.pagination.current
+      let ps = this.pagination.pageSize
       // let tt = this.pagination.total
-      let start = (ct - 1) * ps + 1;
-      let end = ct * ps + 1;
-      this.studentJobList = this.data.student.slice(start, end);
+      let start = (ct - 1) * ps + 1
+      let end = ct * ps + 1
+      this.studentJobList = this.data.student.slice(start, end)
     },
     // json 外层统计数据
     handleData(data) {
-      this.studentsJobData.topSalary = data.topSalary;
-      this.studentsJobData.avgSalary = data.avgSalary;
-      this.studentsJobData.goodSalaryRate = data.goodSalaryRate;
-      this.studentsJobData.jobCount = data.jobCount;
+      this.studentsJobData.topSalary = data.topSalary
+      this.studentsJobData.avgSalary = data.avgSalary
+      this.studentsJobData.goodSalaryRate = data.goodSalaryRate
+      this.studentsJobData.jobCount = data.jobCount
     },
   },
   filters: {
     formatName(str) {
       // var reg = /(?<=.)./g
-      let ruten = str.substring(1);
-      return str.replace(ruten, '**');
+      let ruten = str.substring(1)
+      return str.replace(ruten, '**')
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>

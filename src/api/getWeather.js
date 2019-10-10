@@ -8,8 +8,8 @@ export function getNowWeatherApi({ location }) {
     method: 'get',
     params: {
       location,
-      key: 'acc3e8d31740439f9132547841dc489a'
-    }
+      key: 'acc3e8d31740439f9132547841dc489a',
+    },
   })
 }
 
@@ -20,8 +20,8 @@ export function getForecastWeatherApi({ location }) {
     method: 'get',
     params: {
       location,
-      key: 'acc3e8d31740439f9132547841dc489a'
-    }
+      key: 'acc3e8d31740439f9132547841dc489a',
+    },
   })
 }
 
@@ -32,8 +32,8 @@ export function getLifestyleWeatherApi({ location }) {
     method: 'get',
     params: {
       location,
-      key: 'acc3e8d31740439f9132547841dc489a'
-    }
+      key: 'acc3e8d31740439f9132547841dc489a',
+    },
   })
 }
 
@@ -44,7 +44,7 @@ export function getHourlyleWeatherApi({ location }) {
     method: 'get',
     params: {
       location,
-      key: 'acc3e8d31740439f9132547841dc489a'
-    }
+      key: 'acc3e8d31740439f9132547841dc489a',
+    },
   })
 }
