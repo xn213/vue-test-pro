@@ -85,13 +85,14 @@
 <script>
 import { initPagination } from 'utils'
 import { getStudentJobData } from 'api/studentJobData'
+const date = '2019-09'
 export default {
   name: 'student-job',
   data() {
     return {
       data: {},
       loading: true,
-      date: '2019-09',
+      // date: '2019-09',
       pageSizeArr: [10, 20, 30, 50],
       pagination: { ...initPagination() },
       studentJobList: [],
@@ -119,7 +120,7 @@ export default {
     }
   },
   created() {
-    this.getData(this.date)
+    this.getData(date)
     // console.log('pagination', this.pagination)
   },
   mounted() {
