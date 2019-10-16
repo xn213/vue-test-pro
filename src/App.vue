@@ -10,19 +10,21 @@
         </ul>
       </nav>
       <!-- 内容 -->
-      <section>
+      <section class="section">
         <keep-alive>
           <!-- 需要缓存的视图组件 -->
-          <router-view
-            :include="include"
-            v-if="$route.meta.keepAlive"
-          ></router-view>
+          <transition name="fade" mode="out-in">
+            <router-view
+              :include="include"
+              v-if="$route.meta.keepAlive"
+            ></router-view>
+          </transition>
         </keep-alive>
         <!-- 不需要缓存的视图组件 -->
         <router-view v-if="!$route.meta.keepAlive"></router-view>
       </section>
     </div>
-    <footer v-waves>
+    <footer v-waves class="xn-footer">
       Copyright &copy; 2018-present
       <a
         href="https://xn213.github.io/fe-notes/"
@@ -92,6 +94,9 @@ $xn: #b45dea;
     // }
     .nav {
       width: 100%;
+      position: fixed;
+      top: 0;
+      z-index: 2113;
       overflow-x: auto;
       overflow-y: hidden;
       box-shadow: 0 0 5px $xn;
@@ -127,8 +132,11 @@ $xn: #b45dea;
         }
       }
     }
+    .section {
+      margin-top: 40px;
+    }
   }
-  footer {
+  .xn-footer {
     margin-top: -63px;
     padding: 21px;
     color: #fff;

@@ -1,5 +1,6 @@
 export default function routerLinks() {
   return [
+    { url: '/el-ui', text: 'ElementUI' },
     {
       url: '/weather',
       text: 'weather',

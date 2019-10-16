@@ -1,3 +1,4 @@
+const ElementUI = () => import('pages/test-element')
 const weather = () => import('pages/weather')
 const weatherH5 = () => import('pages/weather/weather-h5.vue')
 const tao24 = () => import('pages/tao24')
@@ -12,7 +13,12 @@ const routes = [
   {
     path: '/',
     name: 'root',
-    redirect: '/weather',
+    redirect: '/el-ui',
+  },
+  {
+    path: '/el-ui',
+    name: 'ElementUI',
+    component: ElementUI,
   },
   {
     path: '/weather',

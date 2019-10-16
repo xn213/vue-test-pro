@@ -50,7 +50,7 @@
         </el-table-column>
         <el-table-column prop="profession" label="专业" width="170">
         </el-table-column>
-        <el-table-column prop="salary" label="薪资" width="150">
+        <el-table-column prop="salary" sortable label="薪资" width="150">
         </el-table-column>
         <el-table-column prop="city" label="坐标" width="70"> </el-table-column>
         <el-table-column prop="company" label="公司" width="260">
@@ -85,7 +85,7 @@
 <script>
 import { initPagination } from 'utils'
 import { getStudentJobData } from 'api/studentJobData'
-const date = '2019-09'
+const date = '2019-10'
 export default {
   name: 'student-job',
   data() {
