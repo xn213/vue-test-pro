@@ -86,12 +86,6 @@ $xn: #b45dea;
     box-sizing: border-box;
     min-height: 100%;
     padding-bottom: 63px;
-    // header {
-    //   height: 50px;
-    //   background: #fff;
-    //   box-shadow: 0 0 3px $xn;
-    //   z-index: 2113;
-    // }
     .nav {
       width: 100%;
       position: fixed;
@@ -133,7 +127,7 @@ $xn: #b45dea;
       }
     }
     .section {
-      margin-top: 40px;
+      padding-top: 40px;
     }
   }
   .xn-footer {
@@ -145,7 +139,6 @@ $xn: #b45dea;
     background-image: linear-gradient(to left, #ff9191, #b45dea);
     a {
       text-decoration: underline;
-      // color: #fff;
       cursor: pointer;
     }
   }
