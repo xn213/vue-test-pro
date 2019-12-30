@@ -8,6 +8,7 @@ const randomUser = () => import('pages/random-user')
 const changan12hours = () => import('pages/changan12hours')
 const Joke = () => import('pages/joke')
 const Test = () => import('pages/test')
+const Login = () => import('components/login')
 
 const routes = [
   {
@@ -113,6 +114,11 @@ const routes = [
     path: '/test',
     name: 'test',
     component: Test,
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: Login,
   },
 ]
 
