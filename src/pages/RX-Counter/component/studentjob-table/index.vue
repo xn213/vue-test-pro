@@ -58,7 +58,7 @@
 
 <script>
 import { initPagination } from 'utils'
-import { getStudentJobData } from 'api/studentJobData'
+import { getStudentJobData } from 'api/getStudentJobData'
 export default {
   name: 'studentjob-table',
   props: { date: String },

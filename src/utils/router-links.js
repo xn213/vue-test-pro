@@ -7,6 +7,7 @@ export default function routerLinks() {
       // target: '_blank'
     },
     { url: '/wlcx', text: 'wlcx' },
+    { url: '/export-excel', text: 'ExportExcel' },
     { url: '/joke', text: 'joke' },
     { url: '/tao24', text: '24tao' },
     { url: '/student-job', text: 'studentJob' },

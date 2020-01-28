@@ -3,6 +3,7 @@ const weather = () => import('pages/weather')
 const weatherH5 = () => import('pages/weather/weather-h5.vue')
 const tao24 = () => import('pages/tao24')
 const studentJob = () => import('pages/student-job')
+const exportExcel = () => import('pages/export-excel')
 const RXCounter = () => import('pages/RX-Counter')
 const randomUser = () => import('pages/random-user')
 const changan12hours = () => import('pages/changan12hours')
@@ -20,6 +21,15 @@ const routes = [
     path: '/el-ui',
     name: 'ElementUI',
     component: ElementUI,
+  },
+  {
+    path: '/export-excel',
+    name: 'exportExcel',
+    component: exportExcel,
+    meta: {
+      deepth: 1,
+      keepAlive: true, // 需要被缓存
+    },
   },
   {
     path: '/weather',

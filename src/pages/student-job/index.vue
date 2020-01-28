@@ -42,7 +42,7 @@
           sortable
           width="120"
         ></el-table-column>
-        <el-table-column prop="education" label="专业" width="60">
+        <el-table-column prop="education" label="学历" width="60">
         </el-table-column>
         <el-table-column prop="class" label="班级" width="180">
         </el-table-column>
@@ -84,7 +84,7 @@
 
 <script>
 import { initPagination } from 'utils'
-import { getStudentJobData } from 'api/studentJobData'
+import { getStudentJobData } from 'api/getStudentJobData'
 const date = '2019-10'
 export default {
   name: 'student-job',
