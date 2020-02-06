@@ -85,7 +85,8 @@
 <script>
 import { initPagination } from 'utils'
 import { getStudentJobData } from 'api/getStudentJobData'
-const date = '2019-10'
+// const date = '2019-10'
+const date = '2020-01'
 export default {
   name: 'student-job',
   data() {

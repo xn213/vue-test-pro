@@ -45,7 +45,10 @@
 <script>
 import { initPagination } from 'utils'
 import { getStudentJobData } from 'api/getStudentJobData'
-const date = '2019-11'
+// const date = '2019-11'
+// const date = '2019-12'
+// const date = '2020-01'
+const date = '2020-02'
 export default {
   name: 'export-excel',
   props: {},
